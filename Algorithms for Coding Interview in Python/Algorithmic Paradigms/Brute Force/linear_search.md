@@ -1,4 +1,5 @@
 **Linear Search**
+
 This method requires us to go through all the possibilities to find a solution to the problem we want to solve. For instance, if we have a list of integers and we want to find the minimum, maximum, or a certain element in that list, the Brute Force approach requires us to go through all the elements to find that specific element.
 
 
@@ -17,7 +18,9 @@ That element exists at any particular index value. If we modify the above task, 
 *Time complexity: O(n)* - We would have to do n comparisons in the worst case if the element we want to find is present on the last index of the array.
 
 **Advantages**
+
 The good thing about the Brute Force method is that, if a solution to our problem exists, we are guaranteed to find the solution this way. Once we have a way to go about solving the problem, we can focus on making the solution more efficient.
 
 **Disadvantages**
+
 Even though it might be the first solution that pops up into our heads, it is the most inefficient one. Also, there are no shortcuts and no performance improvements at this stage.
