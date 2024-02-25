@@ -317,3 +317,321 @@ def renameColumns(students: pd.DataFrame) -> pd.DataFrame:
     students.rename(columns = {'id': 'student_id', 'first': 'first_name', 'last': 'last_name', 'age': 'age_in_years'}, inplace = True)
     return students
 ```
+
+<h2>2886. Change Data Type</h2><h3>Easy</h3>
+DataFrame students
+
+| Column Name | Type   |
+|-------------|--------|
+| student_id  | int    |
+| name        | object |
+| age         | int    |
+| grade       | float  |
+
+Write a solution to correct the errors:
+
+The grade column is stored as floats, convert it to integers.
+
+The result format is in the following example.
+
+ 
+
+Example 1:
+Input:
+DataFrame students:
+
+| student_id | name | age | grade |
+|------------|------|-----|-------|
+| 1          | Ava  | 6   | 73.0  |
+| 2          | Kate | 15  | 87.0  |
+
+Output:
+
+| student_id | name | age | grade |
+|------------|------|-----|-------|
+| 1          | Ava  | 6   | 73    |
+| 2          | Kate | 15  | 87    |
+
+Explanation: 
+The data types of the column grade is converted to int.
+
+```python
+import pandas as pd
+
+def changeDatatype(students: pd.DataFrame) -> pd.DataFrame:
+    students.grade = students.grade.astype('int')
+    return students
+```
+
+<h2>2887. Fill Missing Data</h2><h3>Easy</h3>
+DataFrame products
+
+| Column Name | Type   |
+|-------------|--------|
+| name        | object |
+| quantity    | int    |
+| price       | int    |
+
+Write a solution to fill in the missing value as 0 in the quantity column.
+
+The result format is in the following example.
+
+ 
+
+Example 1:
+Input:
+
+| name            | quantity | price |
+|-----------------|----------|-------|
+| Wristwatch      | None     | 135   |
+| WirelessEarbuds | None     | 821   |
+| GolfClubs       | 779      | 9319  |
+| Printer         | 849      | 3051  |
+
+Output:
+
+| name            | quantity | price |
+|-----------------|----------|-------|
+| Wristwatch      | 0        | 135   |
+| WirelessEarbuds | 0        | 821   |
+| GolfClubs       | 779      | 9319  |
+| Printer         | 849      | 3051  |
+
+Explanation: 
+The quantity for Wristwatch and WirelessEarbuds are filled by 0.
+
+```python
+import pandas as pd
+
+def fillMissingValues(products: pd.DataFrame) -> pd.DataFrame:
+    products.quantity.fillna(0, inplace=True)
+    return products
+```
+
+<h2>2888. Reshape Data: Concatenate</h2><h3>Easy</h3>
+DataFrame df1
+
+| Column Name | Type   |
+|-------------|--------|
+| student_id  | int    |
+| name        | object |
+| age         | int    |
+
+
+DataFrame df2
+
+| Column Name | Type   |
+|-------------|--------|
+| student_id  | int    |
+| name        | object |
+| age         | int    |
+
+
+Write a solution to concatenate these two DataFrames vertically into one DataFrame.
+
+The result format is in the following example.
+
+ 
+
+Example 1:
+
+Input:
+df1
+
+| student_id | name    | age |
+|------------|---------|-----|
+| 1          | Mason   | 8   |
+| 2          | Ava     | 6   |
+| 3          | Taylor  | 15  |
+| 4          | Georgia | 17  |
+
+df2
+
+| student_id | name | age |
+|------------|------|-----|
+| 5          | Leo  | 7   |
+| 6          | Alex | 7   |
+
+Output:
+
+| student_id | name    | age |
+|------------|---------|-----|
+| 1          | Mason   | 8   |
+| 2          | Ava     | 6   |
+| 3          | Taylor  | 15  |
+| 4          | Georgia | 17  |
+| 5          | Leo     | 7   |
+| 6          | Alex    | 7   |
+
+Explanation:
+The two DataFramess are stacked vertically, and their rows are combined.
+
+```python
+import pandas as pd
+
+def concatenateTables(df1: pd.DataFrame, df2: pd.DataFrame) -> pd.DataFrame:
+    return pd.concat([df1, df2])
+```
+
+<h2>2889. Reshape Data: Pivot</h2><h3>Easy</h3>
+DataFrame weather
+
+| Column Name | Type   |
+|-------------|--------|
+| city        | object |
+| month       | object |
+| temperature | int    |
+
+Write a solution to pivot the data so that each row represents temperatures for a specific month, and each city is a separate column.
+
+The result format is in the following example.
+
+ 
+
+Example 1:
+Input:
+
+| city         | month    | temperature |
+|--------------|----------|-------------|
+| Jacksonville | January  | 13          |
+| Jacksonville | February | 23          |
+| Jacksonville | March    | 38          |
+| Jacksonville | April    | 5           |
+| Jacksonville | May      | 34          |
+| ElPaso       | January  | 20          |
+| ElPaso       | February | 6           |
+| ElPaso       | March    | 26          |
+| ElPaso       | April    | 2           |
+| ElPaso       | May      | 43          |
+
+Output:
+
+| month    | ElPaso | Jacksonville |
+|----------|--------|--------------|
+| April    | 2      | 5            |
+| February | 6      | 23           |
+| January  | 20     | 13           |
+| March    | 26     | 38           |
+| May      | 43     | 34           |
+
+Explanation:
+The table is pivoted, each column represents a city, and each row represents a specific month.
+
+```python
+import pandas as pd
+
+def pivotTable(weather: pd.DataFrame) -> pd.DataFrame:
+    result = weather.pivot(index='month', columns='city', values='temperature')
+    return result
+```
+
+<h2>2890. Reshape Data: Melt</h2><h3>Easy</h3>
+DataFrame report
+
+| Column Name | Type   |
+|-------------|--------|
+| product     | object |
+| quarter_1   | int    |
+| quarter_2   | int    |
+| quarter_3   | int    |
+| quarter_4   | int    |
+
+Write a solution to reshape the data so that each row represents sales data for a product in a specific quarter.
+
+The result format is in the following example.
+
+ 
+
+Example 1:
+
+Input:
+
+| product     | quarter_1 | quarter_2 | quarter_3 | quarter_4 |
+|-------------|-----------|-----------|-----------|-----------|
+| Umbrella    | 417       | 224       | 379       | 611       |
+| SleepingBag | 800       | 936       | 93        | 875       |
+
+Output:
+
+| product     | quarter   | sales |
+|-------------|-----------|-------|
+| Umbrella    | quarter_1 | 417   |
+| SleepingBag | quarter_1 | 800   |
+| Umbrella    | quarter_2 | 224   |
+| SleepingBag | quarter_2 | 936   |
+| Umbrella    | quarter_3 | 379   |
+| SleepingBag | quarter_3 | 93    |
+| Umbrella    | quarter_4 | 611   |
+| SleepingBag | quarter_4 | 875   |
+
+Explanation:
+The DataFrame is reshaped from wide to long format. Each row represents the sales of a product in a quarter.
+
+```python
+import pandas as pd
+
+def meltTable(report: pd.DataFrame) -> pd.DataFrame:
+    report = report.melt(id_vars=['product'], 
+                          value_vars=['quarter_1', 'quarter_2', 'quarter_3', 'quarter_4'],
+                          var_name = 'quarter',
+                          value_name = 'sales')
+    return report
+```
+
+<h2>2891. Method Chaining</h2><h3>Easy</h3>
+DataFrame animals
+
+| Column Name | Type   |
+|-------------|--------|
+| name        | object |
+| species     | object |
+| age         | int    |
+| weight      | int    |
+
+Write a solution to list the names of animals that weigh strictly more than 100 kilograms.
+
+Return the animals sorted by weight in descending order.
+
+The result format is in the following example.
+
+ 
+
+Example 1:
+
+Input: 
+DataFrame animals:
+
+| name     | species | age | weight |
+|----------|---------|-----|--------|
+| Tatiana  | Snake   | 98  | 464    |
+| Khaled   | Giraffe | 50  | 41     |
+| Alex     | Leopard | 6   | 328    |
+| Jonathan | Monkey  | 45  | 463    |
+| Stefan   | Bear    | 100 | 50     |
+| Tommy    | Panda   | 26  | 349    |
+
+Output: 
+
+| name     |
+|----------|
+| Tatiana  |
+| Jonathan |
+| Tommy    |
+| Alex     |
+
+Explanation: 
+All animals weighing more than 100 should be included in the results table.
+Tatiana's weight is 464, Jonathan's weight is 463, Tommy's weight is 349, and Alex's weight is 328.
+The results should be sorted in descending order of weight.
+ 
+
+In Pandas, method chaining enables us to perform operations on a DataFrame without breaking up each operation into a separate line or creating multiple temporary variables. 
+
+Can you complete this task in just one line of code using method chaining?
+
+```python
+import pandas as pd
+
+def findHeavyAnimals(animals: pd.DataFrame) -> pd.DataFrame:
+    return animals[animals.weight > 100].sort_values(by='weight', ascending=False)[['name']]
+```
