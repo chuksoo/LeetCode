@@ -4,5 +4,6 @@ class Solution:
         for val in s.split():
             lst.append(val)
         return " ".join(lst[::-1])
+    
         #return " ".join([val for val in s.split()[::-1]])
         
