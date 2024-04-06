@@ -2,16 +2,12 @@
 
 Why focus solely on solving the individual Blind 75 questions when gaining insight into the underlying patterns allows you to develop a comprehensive problem-solving framework? Acquire the transformative skill of unpacking and answering 2800+ LeetCode style questions the right way just by assessing the problem statement. This ingenious approach, developed by hiring managers at MAANG, prepares you to excel in the interview rounds of tech giants like Apple, Google, Meta, Netflix, and Amazon. This condensed set of coding interview questions ensures coverage of 26 coding patterns, providing you with the confidence to excel in your interview without the need for endless practice problems. Each module in the path presents a cohesive set of related coding patterns, enabling you to prepare with a focused and methodical approach. 
 
-:cyclone: Learning Objectives
+:cyclone: <h3>Learning Objectives</h3>
 
 :white_check_mark: Master 26 problem-solving patterns to crack any coding interview!
-
 :white_check_mark: The ability to identify the underlying patterns of 2800+ LeetCode style coding questions by assessing the problem statement (and learn the tricks required to solve it)
-
 :white_check_mark: A hands-on, setup-free coding environment to brush up your skills by solving 99 handpicked problems
-
 :white_check_mark: The ability to efficiently evaluate the tradeoffs between time and space complexity in different solutions
-
 :white_check_mark: Develop a flexible conceptual framework for solving any question, by connecting problem characteristics, solution techniques, and coding design patterns<br>
 <hr>
 
