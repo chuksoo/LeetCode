@@ -52,6 +52,12 @@ def main():
             print("\tSum for", targets[i], "does not exist")
         print("-"*100)
 
+"""
+Time complexity: O(n^2)
+Space complexity: O(n)
+"""
+
+
 if __name__ == '__main__':
     main()
         
