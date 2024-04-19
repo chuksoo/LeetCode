@@ -19,7 +19,6 @@ Constraints:
 
 def find_sum_of_three(nums, target):
     nums.sort()
-    
     for i  in range(0, len(nums) - 2):
         low = i + 1
         high = len(nums) - 1
@@ -56,7 +55,6 @@ def main():
 Time complexity: O(n^2)
 Space complexity: O(n)
 """
-
 
 if __name__ == '__main__':
     main()
