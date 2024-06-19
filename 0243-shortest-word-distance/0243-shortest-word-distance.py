@@ -1,8 +1,6 @@
 class Solution:
     def shortestDistance(self, wordsDict: List[str], word1: str, word2: str) -> int:
-        ptr1 = float('inf')
-        ptr2 = float('inf')
-        min_distance = float('inf')
+        ptr1 = ptr2 = min_distance = float('inf')
         for index, item in enumerate(wordsDict):
             if word1 == word2 or wordsDict == []:
                 return -1
