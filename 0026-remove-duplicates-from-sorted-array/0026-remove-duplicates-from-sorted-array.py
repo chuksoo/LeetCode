@@ -5,6 +5,6 @@ class Solution:
             if nums[i] != nums[i-1]:
                 nums[idx] = nums[i]
                 idx += 1
-        print(idx)
+        # print(idx)
         return idx
         
