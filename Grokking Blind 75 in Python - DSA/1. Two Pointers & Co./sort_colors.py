@@ -3,9 +3,7 @@ def sort_colors(colors):
     
     while current <= end:
         if colors[current] == 0:
-            if colors[start] != 0:
-                colors[start], colors[current] = colors[current], colors[start]
-            
+            colors[current], colors[start] = colors[start], colors[current]
             current += 1
             start += 1
 
@@ -13,10 +11,9 @@ def sort_colors(colors):
             current += 1
 
         else:
-            if colors[end] != 2:
-                colors[current], colors[end] = colors[end], colors[current]
-
+            colors[current], colors[end] = colors[end], colors[current]
             end -= 1
+    return colors
 
 # Driver code
 def main():
