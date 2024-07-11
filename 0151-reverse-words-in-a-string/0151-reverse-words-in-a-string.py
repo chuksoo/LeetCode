@@ -6,4 +6,5 @@ class Solution:
         # return " ".join(lst[::-1])
     
         return " ".join([val for val in s.split()[::-1]])
+        #return " ".join(s.split()[::-1])
         
