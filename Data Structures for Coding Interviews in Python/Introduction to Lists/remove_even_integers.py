@@ -24,6 +24,10 @@ def main():
         print("\n\tFinal list: ", remove_even(inputs[i]), sep="")
         print("-" * 40)
 
+"""
+Time complexity: O(n), where n is the length of the input list
+Space complexity: O(1), as we are not using any additional data structures.
+"""
 
 if __name__ == "__main__":
     main()
