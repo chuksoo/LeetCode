@@ -1,8 +1,8 @@
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
-        from collections import Counter
-        my_dict = Counter(nums)
-        for value in my_dict.values():
-            if value >= 2:
+        my_set = set()
+        for num in nums:
+            if num in my_set:
                 return True
+            my_set.add(num)
         return False
