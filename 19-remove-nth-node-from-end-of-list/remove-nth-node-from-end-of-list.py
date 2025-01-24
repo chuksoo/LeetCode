@@ -5,21 +5,23 @@
 #         self.next = next
 class Solution:
     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
-        # initialize two pointers
-        # move the right pointer n steps
-        # if right is null, return the head next node
-        # traverse the linked list moving the two pointer one step at a time
-        # relink the linked list
-        left, right = head, head
+        # initialize slow and fast at the head of node
+        slow, fast = head, head
+        # return nothing is we only have one head
+        if not fast.next:
+            return 
+        # move fast n steps ahead
         for i in range(n):
-            right = right.next
-            
-        if not right:
+            fast = fast.next
+        # if fast reaches NULL, return the head
+        if not fast:
             return head.next
-        
-        while right.next:
-            left = left.next
-            right = right.next
-        left.next = left.next.next
+        # otherwise, move fast until it reaches the end
+        while fast and fast.next:
+            fast = fast.next
+            slow = slow.next
+        # update slow.next to point to slow.next.next
+        slow.next = slow.next.next
+        # return head
         return head
         
