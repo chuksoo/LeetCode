@@ -6,24 +6,26 @@ class Solution:
         # return " ".join(reversed_word)
         
         # Method 2 - List comprehension
-        return " ".join([item[::-1] for item in s.split(' ')])
+        # return " ".join([item[::-1] for item in s.split(' ')])
 
         # Method 3 - Two Pointer
-#         new_str = ''
-#         for i, item in enumerate(s.split(' ')):
+        result = ''
+        split_words = s.split()
+        for word in split_words:
+            reversed_str = reverse_string(word)
+            result = result + reversed_str + " "
+        result = result.strip()
+        return result
 
-#             new_str += reverse_string(item.split())
-#         return new_str
-
-
-
-# def reverse_string(strg):
-#     start = 0
-#     end = len(strg) - 1
-#     while start <= end:
-#         strg[start], strg[end] = strg[end], strg[start]
-#         start += 1
-#         end -= 1
+def reverse_string(strg):
+    char_list = list(strg)
+    start = 0
+    end = len(char_list) - 1
+    while start <= end:
+        char_list[start], char_list[end] = char_list[end], char_list[start]
+        start += 1
+        end -= 1
+    return "".join(char_list)
 
     
 
