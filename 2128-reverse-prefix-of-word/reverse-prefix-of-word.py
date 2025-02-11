@@ -6,9 +6,9 @@ class Solution:
             return word
 
         if ind == len(word) - 1:
-            prefix_word += word[ind] + reverse_word(word[:ind])
+            prefix_word += reverse_word(word[:ind+1])
         elif ch in word:
-            prefix_word += word[ind] + reverse_word(word[:ind]) + word[ind+1:]
+            prefix_word += reverse_word(word[:ind+1]) + word[ind+1:]
         return prefix_word
 
 def reverse_word(strg):
