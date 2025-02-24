@@ -12,7 +12,7 @@ class Solution:
         #     fast += 1
         # return result
 
-        # Time: O(nlog n)
+        # Time: O(Nlog N), Space: O(N)
         from sortedcontainers import SortedList
         sorted_list = SortedList()
         result = []
