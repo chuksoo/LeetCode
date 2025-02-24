@@ -8,6 +8,7 @@ class Solution:
         # else:
         #     return num_lst[0]
 
+        # Time: O(N), Space: O(1)
         first = second = third = None
         for num in nums:
             if num == first or num == second or num == third:
