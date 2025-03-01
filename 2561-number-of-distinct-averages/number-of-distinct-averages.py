@@ -8,7 +8,7 @@ class Solution:
         #     max_val = nums.pop(-1)
         #     distinct_avg.add((min_val + max_val) / 2)
 
-        # Time: , Space:
+        # Time: O(N log N), Space: O(N)
         from collections import deque
         nums.sort()
         nums = deque(nums)
