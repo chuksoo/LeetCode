@@ -13,7 +13,7 @@ class Solution:
         #     count += 1
         # return min(avgs)
 
-        # Time: O(N log N), Space: O(N)
+        # Time: O(N log N), Space: O(1)
         nums.sort()
         left, right = 0, len(nums) - 1
         min_avg = float('inf')
