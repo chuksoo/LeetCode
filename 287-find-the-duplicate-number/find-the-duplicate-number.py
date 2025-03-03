@@ -1,15 +1,11 @@
 class Solution:
     def findDuplicate(self, nums: List[int]) -> int:
-        low = 1
-        high = len(nums) - 1
-
-        while low < high:
-            mid = low + (high - low) // 2
-            count = sum(num <= mid for num in nums)
-
-            if count > mid:
-                high = mid
+        duplicated_map = {}
+        for item in nums:
+            if item in duplicated_map:
+                duplicated_map[item] += 1
+                return item
             else:
-                low = mid + 1
-
-        return low
+                duplicated_map[item] = 1
+        
+        
