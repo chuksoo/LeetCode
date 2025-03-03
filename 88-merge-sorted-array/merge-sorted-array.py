@@ -13,17 +13,7 @@ class Solution:
                 fast += 1
                 slow += 1
         return nums1.sort()
-        # fast = 0
-        # while fast < len(nums1) - 1:
-        #     if nums1[fast] <= nums1[fast + 1]:
-        #         nums1[k] = nums1[fast]
-        #         fast += 1
-        #         k += 1
-        #     else:
-        #         nums1[fast], nums1[fast + 1] = nums1[fast + 1], nums1[fast]
-        #         nums1[k] = nums1[fast]
-        #         fast += 1
-        #         k += 1
+
 
 
         
