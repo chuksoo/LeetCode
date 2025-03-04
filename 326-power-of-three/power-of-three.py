@@ -10,7 +10,8 @@ class Solution:
             n, r = divmod(n, 3)
             if r > 0:
                 return False
-            elif r == 0 and n == 1:
-                return True
-        #return True
+        return True
+            # elif r == 0 and n == 1:
+            #     return True
+
         
