@@ -10,10 +10,13 @@ class Solution:
             k -= 1
         return digit
 
+    # def get_total_sum(self, val):
+    #     total_sum = 0
+    #     while val != 0:
+    #         quotient, remainder = divmod(val, 10)
+    #         total_sum += remainder
+    #         val = quotient
+    #     return total_sum
+
     def get_total_sum(self, val):
-        total_sum = 0
-        while val != 0:
-            quotient, remainder = divmod(val, 10)
-            total_sum += remainder
-            val = quotient
-        return total_sum
+        return sum(map(int, str(val)))
