@@ -6,11 +6,11 @@ class Solution:
         while n > 0:
             if n == 1:
                 return True
-                
+
             n, r = divmod(n, 3)
             if r > 0:
                 return False
             elif r == 0 and n == 1:
                 return True
-        return True
+        #return True
         
