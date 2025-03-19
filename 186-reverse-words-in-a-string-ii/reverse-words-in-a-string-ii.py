@@ -1,24 +1,29 @@
 class Solution:
-    def reverse_whole_list(self, l: List[str], left: int, right: int) -> None:
-        while left < right:
-            l[left], l[right] = l[right], l[left]
-            left += 1
-            right -= 1
-            
-    def reverse_each_word(self, l: List[str]) -> None:
-        n = len(l)
-        start = end = 0
-        while start < n:
-            while end < n and l[end] != " ":
-                end += 1
-            self.reverse_whole_list(l, start, end - 1)
-            start = end + 1
-            end += 1
-            
     def reverseWords(self, s: List[str]) -> None:
         """
         Do not return anything, modify s in-place instead.
         """
-        self.reverse_whole_list(s, 0, len(s) - 1)
-        self.reverse_each_word(s)
+        reverse_word(s, 0, len(s) - 1)
+        left = 0
+
+        for i in range(0, len(s) - 1):
+            if s[i] == " ":
+                reverse_word(s, left, i - 1)
+                left = i + 1
+        # reverse the last word
+        reverse_word(s, left, len(s) - 1)
+        
+def reverse_word(s, start, end):
+    while start < end:
+        s[start], s[end] =  s[end], s[start]
+        start += 1
+        end -= 1
+
+
+
+
+            
+            
+
+
         
