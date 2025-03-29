@@ -3,6 +3,7 @@ class Solution:
         """
         Do not return anything, modify nums1 in-place instead.
         """
+        # Time - O(M+N), Space - O(1)
         k = 0
         fast = slow = 0
         while fast <= len(nums1) - 1 and slow <= len(nums2) - 1:
