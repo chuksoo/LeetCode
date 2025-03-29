@@ -13,10 +13,10 @@ class Solution:
         # move fast n steps ahead
         for i in range(n):
             fast = fast.next
-        # if fast reaches NULL, return the head
+        # if fast reaches NULL, return the head.next
         if not fast:
             return head.next
-        # otherwise, move fast until it reaches the end
+        # Move both pointers until they reach the end
         while fast and fast.next:
             fast = fast.next
             slow = slow.next
