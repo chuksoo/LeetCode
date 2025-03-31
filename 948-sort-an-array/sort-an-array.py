@@ -1,5 +1,6 @@
 class Solution:
     def sortArray(self, nums: List[int]) -> List[int]:
+        # Time - O(NlogN), Space - O(1)
         import heapq
 
         # heapify data
