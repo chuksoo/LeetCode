@@ -1,5 +1,6 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
+        # Brute force - Time: O(N), Space: O(N)
         # Create an empty dictionary to store complements
         complement_dict = {}
         # iterate thru array
