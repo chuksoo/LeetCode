@@ -6,32 +6,28 @@
 #         self.right = right
 class Solution:
     def binaryTreePaths(self, root: Optional[TreeNode]) -> List[str]:
-        """  
-        Understand: Are we returning a list containing string?
-                    What happens if the node is none, what's our return value
-        Plan:
-            # if node is none, return None
-            # if node is not None, return the value of the node
-            # get left root path 
-            # get right root path
-            # append to list and return new list
-        Implement:
-        """
-        if root is None:
-            return []
-        
-        if not root.left and not root.right:
-            return [str(root.val)]
-        
         paths = []
-        if root.left:
-            for path in self.binaryTreePaths(root.left):
-                paths.append(f"{root.val}->{path}")
-        
-        if root.right:
-            for path in self.binaryTreePaths(root.right):
-                paths.append(f"{root.val}->{path}")            
-                             
+        def pre_order(node, path, paths):
+            if not node:
+                return
+
+            # add node to path
+            path.append(str(node.val)) 
+            if not node.left and not node.right:
+                # add path to path list
+                paths.append("->".join(path)) 
+            else:
+                pre_order(node.left, path, paths) 
+                pre_order(node.right, path, paths) 
+            path.pop()
+
+        pre_order(root, [], paths)
         return paths
-            
+
+
+
+
+
+
+
         
