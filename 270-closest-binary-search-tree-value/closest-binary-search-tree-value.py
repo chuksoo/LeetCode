@@ -6,19 +6,37 @@
 #         self.right = right
 class Solution:
     def closestValue(self, root: Optional[TreeNode], target: float) -> int:
-        def get_best_val(node, best):
+        # helper function for recursion
+        def helper(node, closest):
             if not node:
-                return best
+                return closest
 
-            if (abs(node.val - target) < abs(best - target)) or (abs(node.val - target) == abs(best - target) and node.val < best):
-                best = node.val
+            # update closest if current node is closer to target
+            if abs(node.val - target) < abs(closest - target) or (abs(node.val - target) == abs(closest - target) and node.val < closest):
+                closest = node.val
 
+            # decide whether to go left or right
             if target < node.val:
-                return get_best_val(node.left, best)
+                return helper(node.left, closest)
             else:
-                return get_best_val(node.right, best)
+                return helper(node.right, closest)
 
-        return get_best_val(root, root.val)        
+        return helper(root, root.val)
+
+
+        # def get_best_val(node, best):
+        #     if not node:
+        #         return best
+
+        #     if (abs(node.val - target) < abs(best - target)) or (abs(node.val - target) == abs(best - target) and node.val < best):
+        #         best = node.val
+
+        #     if target < node.val:
+        #         return get_best_val(node.left, best)
+        #     else:
+        #         return get_best_val(node.right, best)
+
+        # return get_best_val(root, root.val)        
 
 
         
