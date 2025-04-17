@@ -14,8 +14,6 @@ class Solution:
         if len(nums) == 1:
             return nums[0]
 
-
-
         left, right = 0, len(nums) - 1
         if nums[left] < nums[right]:
             return nums[left]
