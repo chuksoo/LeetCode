@@ -8,7 +8,7 @@ class Solution:
         #         index = i
         # return index
 
-        # Time - O(Nlog N), Space - O(1)
+        # Time - O(log N), Space - O(1)
         left, right = 0, len(nums) - 1
         while left < right:
             mid = (left + right) >> 1
