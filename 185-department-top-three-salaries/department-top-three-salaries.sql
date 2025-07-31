@@ -1,5 +1,6 @@
 # Write your MySQL query statement below
-WITH ranked_cte AS (
+SELECT Department, Employee, Salary
+FROM (
     SELECT 
         e.name AS Employee, 
         e.salary AS Salary, 
@@ -8,7 +9,5 @@ WITH ranked_cte AS (
     FROM Employee e
     JOIN Department d
     ON e.departmentId = d.id 
-)
-SELECT Department, Employee, Salary
-FROM ranked_cte
+) AS ranked_cte
 WHERE rank_ <= 3
