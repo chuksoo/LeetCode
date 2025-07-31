@@ -13,11 +13,11 @@ odd_transaction_cte AS (
 ), 
 transaction_table_cte AS (
     SELECT * FROM even_transaction_cte ec 
-    LEFT OUTER JOIN odd_transaction_cte oc
+    LEFT JOIN odd_transaction_cte oc
     ON ec.even_transaction_date = oc.odd_transaction_date
     UNION 
     SELECT * FROM even_transaction_cte ec 
-    RIGHT OUTER JOIN odd_transaction_cte oc
+    RIGHT JOIN odd_transaction_cte oc
     ON ec.even_transaction_date = oc.odd_transaction_date
 ),
 main_table_cte AS (
@@ -40,10 +40,12 @@ SELECT
     END AS even_sum
 FROM transaction_table_cte
 )
+
 SELECT DISTINCT a.even_transaction_date AS transaction_date, a.odd_sum, a.even_sum
 FROM main_table_cte a
 JOIN main_table_cte b
 ON a.even_transaction_date = b.odd_transaction_date
 ORDER BY 1 ASC
+
 
 
