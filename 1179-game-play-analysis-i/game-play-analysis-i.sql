@@ -9,3 +9,4 @@ WITH ranked_logins AS (
     FROM Activity
 )
 SELECT player_id, event_date AS first_login FROM ranked_logins WHERE login_rank = 1
+
