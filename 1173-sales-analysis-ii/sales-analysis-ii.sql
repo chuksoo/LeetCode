@@ -1,20 +1,20 @@
 # Write your MySQL query statement below
-WITH all_buyers_cte AS (
-    SELECT s.buyer_id, s.seller_id, s.product_id, p.product_name
+WITH s8_buyers AS (
+    SELECT DISTINCT s.buyer_id
     FROM Sales s
-    JOIN Product p
-    ON s.product_id = p.product_id
+    JOIN Product p ON s.product_id = p.product_id
+    WHERE p.product_name = 'S8'
 ),
-iphone_buyers_cte AS (
-    SELECT buyer_id, seller_id, product_name, product_id
-    FROM all_buyers_cte
-    WHERE product_name = 'iPhone'
+iphone_buyers AS (
+    SELECT DISTINCT s.buyer_id
+    FROM Sales s
+    JOIN Product p ON s.product_id = p.product_id
+    WHERE p.product_name = 'iPhone'
 )
-
-SELECT DISTINCT buyer_id 
-FROM all_buyers_cte
-WHERE product_name = 'S8' 
-    AND buyer_id NOT IN (SELECT buyer_id FROM iphone_buyers_cte);
-
-
-
+SELECT buyer_id
+FROM s8_buyers
+WHERE buyer_id NOT IN (
+    SELECT buyer_id 
+    FROM iphone_buyers 
+    WHERE buyer_id IS NOT NULL
+)
