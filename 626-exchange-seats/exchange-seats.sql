@@ -17,4 +17,3 @@ SELECT
     END AS student
 FROM prev_next_student
 
--- SELECT * FROM prev_next_student
