@@ -2,9 +2,7 @@
 WITH candidate_data AS (
     SELECT 
         DISTINCT c.candidate_id, 
-        c.name, 
         c.years_of_exp, 
-        c.interview_id, 
         SUM(r.score) OVER(
             PARTITION BY c.interview_id
         ) AS agg_score
