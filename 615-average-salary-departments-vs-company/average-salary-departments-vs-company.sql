@@ -4,13 +4,12 @@ WITH all_data AS (
     FROM Employee e
     JOIN Salary s
     ON e.employee_id = s.employee_id
-    ORDER BY 5
 ),
 company_average_sal AS (
     SELECT 
         DATE_FORMAT(pay_date, '%Y-%m') AS pay_month,
         AVG(amount) AS coy_avg_sal
-    FROM all_data
+    FROM Salary
     GROUP BY 1
     ORDER BY 1
 ), 
