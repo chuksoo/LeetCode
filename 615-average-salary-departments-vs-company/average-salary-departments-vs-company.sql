@@ -11,7 +11,6 @@ company_average_sal AS (
         AVG(amount) AS coy_avg_sal
     FROM Salary
     GROUP BY 1
-    ORDER BY 1
 ), 
 dept_monthly_avg AS (
     SELECT 
