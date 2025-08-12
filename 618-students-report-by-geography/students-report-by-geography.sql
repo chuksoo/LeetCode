@@ -5,7 +5,6 @@ WITH america_cte AS (
         ROW_NUMBER() OVER(ORDER BY name ASC) as row_num
     FROM Student
     WHERE continent = 'America' 
-    -- ORDER BY 1
 ),
 asia_cte AS (
     SELECT 
@@ -13,7 +12,6 @@ asia_cte AS (
         ROW_NUMBER() OVER(ORDER BY name ASC) as row_num
     FROM Student
     WHERE continent = 'Asia' 
-    -- ORDER BY 1
 ),
 europe_cte AS (
     SELECT 
@@ -21,7 +19,6 @@ europe_cte AS (
         ROW_NUMBER() OVER(ORDER BY name ASC) as row_num
     FROM Student
     WHERE continent = 'Europe' 
-    -- ORDER BY 1
 )
 
 SELECT 
