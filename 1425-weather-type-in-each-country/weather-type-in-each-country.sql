@@ -4,7 +4,7 @@ WITH avg_weather_cte AS (
         country_id
         , AVG(weather_state) AS avg_weather
     FROM Weather
-    WHERE EXTRACT(YEAR_MONTH FROM day) = '201911'
+    WHERE day BETWEEN "2019-11-01" AND "2019-11-30"
     GROUP BY 1
 )
 
