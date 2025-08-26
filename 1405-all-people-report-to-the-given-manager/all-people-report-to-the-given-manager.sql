@@ -18,4 +18,3 @@ WHERE eh.level < 3  -- Limit recursion depth to 3 levels
 
 SELECT DISTINCT employee_id
 FROM employee_hierarchy
-ORDER BY 1
