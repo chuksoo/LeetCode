@@ -1,7 +1,7 @@
 # Write your MySQL query statement below
 SELECT
     p.product_id
-    , (p.price - COALESCE((d.discount/100)*p.price, 0)) AS final_price
+    , (p.price - IFNULL((d.discount/100)*p.price, 0)) AS final_price
     , p.category
 FROM Products p 
 LEFT JOIN Discounts d 
