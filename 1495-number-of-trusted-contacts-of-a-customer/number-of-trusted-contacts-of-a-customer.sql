@@ -21,8 +21,8 @@ WITH
 SELECT inv.invoice_id
     , cust.customer_name
     , inv.price
-    , COALESCE(cc.contacts_cnt, 0) AS contacts_cnt
-    , COALESCE(tc.trusted_contacts_cnt, 0) AS trusted_contacts_cnt
+    , IFNULL(cc.contacts_cnt, 0) AS contacts_cnt
+    , IFNULL(tc.trusted_contacts_cnt, 0) AS trusted_contacts_cnt
 FROM Invoices inv
 JOIN Customers cust
     ON inv.user_id = cust.customer_id
