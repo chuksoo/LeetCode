@@ -35,9 +35,15 @@ SELECT
     , startDate
     , endDate
 FROM all_result
-WHERE (rnk = 2 AND activity_count > 1) 
-    OR (rnk = 1 AND activity_count = 1)
-
+WHERE rnk = 2 AND activity_count > 1
+UNION ALL
+SELECT 
+    username
+    , activity
+    , startDate
+    , endDate
+FROM all_result
+WHERE rnk = 1 AND activity_count = 1
 
 
 
