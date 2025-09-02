@@ -2,7 +2,7 @@
 WITH 
     low_scores AS (
         SELECT 
-            DISTINCT exam_id
+            exam_id
             , student_id
             , score
             , MIN(score) OVER(PARTITION BY exam_id) AS lowest_score
@@ -10,7 +10,7 @@ WITH
     ),
     high_scores AS (
         SELECT 
-            DISTINCT exam_id
+            exam_id
             , student_id
             , score
             , MAX(score) OVER(PARTITION BY exam_id) AS highest_score
@@ -30,7 +30,6 @@ WITH
             , score
         FROM low_scores
         WHERE score = lowest_score
-        ORDER BY exam_id, score DESC
     )
 
 SELECT 
