@@ -1,11 +1,10 @@
 # Write your MySQL query statement below
 WITH 
     company_max_salary_cte AS (
-        SELECT
+        SELECT DISTINCT
             company_id
-            , MAX(salary) AS max_salary
+            , MAX(salary) OVER(PARTITION BY company_id) AS max_salary
         FROM Salaries
-        GROUP BY 1
     ),
     company_tax_rate AS (
         SELECT
