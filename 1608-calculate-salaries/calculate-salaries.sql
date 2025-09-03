@@ -1,19 +1,11 @@
 # Write your MySQL query statement below
 WITH 
-    company_salary_rank AS (
-        SELECT
-            company_id
-            , employee_id
-            , salary
-            , DENSE_RANK () OVER(PARTITION BY company_id ORDER BY salary DESC) AS salary_rnk
-        FROM Salaries
-    ),
     company_max_salary_cte AS (
         SELECT
             company_id
-            , salary AS max_salary
-        FROM company_salary_rank
-        WHERE salary_rnk = 1
+            , MAX(salary) AS max_salary
+        FROM Salaries
+        GROUP BY 1
     ),
     company_tax_rate AS (
         SELECT
