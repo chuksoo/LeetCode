@@ -19,4 +19,4 @@ SELECT
     , order_date 
 FROM ranked_product_orders_cte
 WHERE order_rnk = 1
-ORDER BY product_name ASC, product_id ASC, order_id ASC
+ORDER BY product_name ASC, order_id ASC
