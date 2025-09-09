@@ -20,3 +20,5 @@ SELECT (
     ) 
 ) AS fraction
 
+
+
