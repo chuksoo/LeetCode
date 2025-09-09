@@ -11,6 +11,7 @@ most_friends AS (
     FROM friend_stats
     GROUP BY 1
 )
+
 SELECT id, num
 FROM most_friends 
 WHERE num >= (SELECT MAX(num) FROM most_friends)
