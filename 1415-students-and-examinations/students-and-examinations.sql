@@ -8,7 +8,10 @@ WITH student_subject_cte AS (
     CROSS JOIN Subjects b
 ),
 exam_attended AS (
-    SELECT student_id, subject_name, COUNT(subject_name) AS attended_exams
+    SELECT 
+        student_id
+        , subject_name, 
+        COUNT(subject_name) AS attended_exams
     FROM Examinations
     GROUP BY 1, 2
 )
