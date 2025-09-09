@@ -20,7 +20,7 @@ SELECT
     c.student_id,
     c.student_name,
     c.subject_name,
-    COALESCE(d.attended_exams, 0) AS attended_exams
+    IFNULL(d.attended_exams, 0) AS attended_exams
 FROM student_subject_cte c
 LEFT JOIN exam_attended d
 ON c.student_id = d.student_id
