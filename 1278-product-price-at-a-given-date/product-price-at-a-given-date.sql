@@ -1,25 +1,26 @@
 # Write your MySQL query statement below
 WITH price_change_cte AS (
     SELECT 
-        product_id,
-        new_price,
-        change_date
+        product_id
+        , new_price
+        , change_date
+        , ROW_NUMBER () OVER(PARTITION BY product_id ORDER BY change_date DESC) AS row_num
     FROM Products
     WHERE change_date <= '2019-08-16'
 ),
-ranked_changes AS (
-    SELECT 
-        product_id,
-        new_price,
-        change_date,
-        ROW_NUMBER () OVER(PARTITION BY product_id ORDER BY change_date DESC) AS row_num
-    FROM price_change_cte
-),
+-- ranked_changes AS (
+--     SELECT 
+--         product_id,
+--         new_price,
+--         change_date,
+--         ROW_NUMBER () OVER(PARTITION BY product_id ORDER BY change_date DESC) AS row_num
+--     FROM price_change_cte
+-- ),
 latest_price AS (
     SELECT 
         product_id,
         new_price AS price
-    FROM ranked_changes 
+    FROM price_change_cte
     WHERE row_num = 1
 ), 
 all_products AS (
