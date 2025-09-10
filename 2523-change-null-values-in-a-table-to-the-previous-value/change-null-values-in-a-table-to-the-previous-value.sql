@@ -1,11 +1,4 @@
 # Write your MySQL query statement below
--- SELECT
---     id
---     , drink
---     , ROW_NUMBER() OVER()
---     , LAG(drink, 1) OVER(ORDER BY id) AS prev_drink
--- FROM CoffeeShop
-
 WITH 
     row_counter_cte AS (
         SELECT 
