@@ -8,7 +8,6 @@ WITH get_capacity_score_cte AS (
         END AS new_score
     FROM Schools s
     CROSS JOIN Exam e
-    ORDER BY 1
 ),
 rank_capacity_score_cte AS (
     SELECT
