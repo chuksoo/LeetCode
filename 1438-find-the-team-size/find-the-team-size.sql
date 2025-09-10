@@ -4,7 +4,7 @@ SELECT
     , f.team_size
 FROM Employee e
 LEFT JOIN (
-    SELECT DISTINCT team_id, COUNT(team_id) AS team_size
+    SELECT DISTINCT team_id, COUNT(*) AS team_size
     FROM Employee
     GROUP BY 1
 ) AS f
