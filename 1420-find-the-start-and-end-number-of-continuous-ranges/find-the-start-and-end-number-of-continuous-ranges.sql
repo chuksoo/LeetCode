@@ -14,7 +14,9 @@ WITH
         FROM logged_row_numbers
     )
 
-SELECT MIN(log_id) AS start_id, MAX(log_id) AS end_id 
+SELECT 
+    MIN(log_id) AS start_id
+    , MAX(log_id) AS end_id 
 FROM row_difference
 GROUP BY row_diff
 ORDER BY 1
