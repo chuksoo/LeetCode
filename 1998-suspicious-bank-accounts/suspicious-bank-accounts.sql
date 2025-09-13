@@ -12,7 +12,6 @@ WITH
         WHERE type = 'Creditor'
         GROUP BY 1, 2
         HAVING income > max_income
-        ORDER BY 1 ASC, 2 ASC
     )
 
 SELECT 
