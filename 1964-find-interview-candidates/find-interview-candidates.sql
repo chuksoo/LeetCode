@@ -20,7 +20,6 @@ WITH
     winning_users_cte AS (
         SELECT 
             DISTINCT a.medals_won AS user_id
-            -- , COUNT(a.medals_won) AS medals_cnt
         FROM medals_table_cte AS a
         JOIN medals_table_cte AS b
         ON a.medals_won = b.medals_won AND a.contest_id + 1 = b.contest_id
