@@ -6,8 +6,8 @@ WITH
             , name
             , salary
         FROM Employees
-        GROUP BY 3
-        HAVING COUNT(salary) = 1
+        GROUP BY salary
+        HAVING COUNT(*) = 1
     ),
     employee_without_unique_salary AS (
         SELECT * FROM Employees
