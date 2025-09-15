@@ -8,5 +8,10 @@ WITH ranked_logins AS (
         RANK () OVER(PARTITION BY player_id ORDER BY event_date ASC) as login_rank
     FROM Activity
 )
-SELECT player_id, event_date AS first_login FROM ranked_logins WHERE login_rank = 1
+
+SELECT 
+    player_id
+    , event_date AS first_login 
+FROM ranked_logins 
+WHERE login_rank = 1
 
