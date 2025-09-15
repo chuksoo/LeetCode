@@ -41,3 +41,4 @@ SELECT
 FROM Users AS u
 JOIN winning_users_cte AS w
 ON u.user_id = w.user_id
+
