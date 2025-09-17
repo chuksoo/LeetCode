@@ -16,6 +16,4 @@ SELECT
 FROM Likes l
 JOIN friends_with_user_one f
 ON f.users = l.user_id
-WHERE l.page_id NOT IN (
-    SELECT page_id FROM Likes WHERE user_id = 1
-)
+WHERE l.page_id NOT IN (SELECT page_id FROM Likes WHERE user_id = 1)
