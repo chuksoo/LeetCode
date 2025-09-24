@@ -10,7 +10,7 @@ WITH
             user2_id AS user_id
             , user1_id AS friends
         FROM Friendship
-        ORDER BY 1, 2
+        -- ORDER BY 1, 2
     )
 
 SELECT 
