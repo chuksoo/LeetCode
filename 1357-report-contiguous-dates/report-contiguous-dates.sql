@@ -10,7 +10,6 @@ WITH
             success_date AS period_date
             , 'succeeded' AS period_state 
         FROM Succeeded
-        ORDER BY period_date ASC
     ),
     ranked_period_cte AS (
         SELECT 
