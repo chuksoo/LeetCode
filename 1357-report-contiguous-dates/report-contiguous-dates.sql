@@ -5,7 +5,7 @@ WITH
             fail_date AS period_date
             , 'failed' AS period_state 
         FROM Failed
-        UNION
+        UNION ALL
         SELECT 
             success_date AS period_date
             , 'succeeded' AS period_state 
