@@ -15,5 +15,5 @@ class Solution:
             else:
                 unique_sequence.add(substring)
         # return repeated as a list
-        return [*repeated_sequence]
+        return list(repeated_sequence)
         
